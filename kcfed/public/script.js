@@ -132,6 +132,7 @@ async function loadPyodideIfNeeded() {
 async function checkUserInput() {
   console.log(document.getElementById("example").innerText.value);
   let example=document.getElementById("example").innerHTML;
+  console.log("Checking for "+example);
   const userInput = document.getElementById("input").value.trim();
   const tutorialSteps = await loadTutorialSteps();
   console.log(tutorialSteps);
@@ -141,9 +142,14 @@ async function checkUserInput() {
   for (let i=0; i<=tutorialSteps.length; i++){
     console.log(i);
     console.log(tutorialSteps[i].expectedCode);
-    if (tutorialSteps[i].expectedCode===example){
+    if (tutorialSteps[i].expectedCode==example){
         console.log("Found: "+example);
-        return true;
+        if (userInput==example){
+          return true;
+        }
+        else{
+          return false;
+        }
         
     }
   }
@@ -197,7 +203,7 @@ async function runCode() {
   }
   var changing = document.getElementById("instruction");
   var example=document.getElementById("example")
-  if (checkUserInput(example)==True) {
+  if (checkUserInput()) {
     
     changing.classList.add("animate");
     example.classList.add("animate");
