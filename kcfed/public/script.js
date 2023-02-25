@@ -84,9 +84,13 @@ const tutorialSteps = require('./tutorial-steps.json');
 window.languagePluginUrl ('https://cdn.jsdelivr.net/pyodide/v0.18.1/full/pyodide.js');
 
 async function loadTutorialSteps() {
-  const response = await fetch('tutorial-steps.json');
+  const response = await fetch('./tutorial-steps.json',{
+    method: "get",
+    headers:{"Content-Type":"application/json",},
+  });
   const data = await response.json();
-  console.log(data)
+  console.log('This is data:');
+  data.forEach(obj => console.log(JSON.stringify(obj)));
   return data;
 }
 
@@ -127,8 +131,8 @@ async function loadPyodideIfNeeded() {
 async function checkUserInput() {
   console.log(document.getElementById("example").innerText.value);
   const userInput = document.getElementById("input").value.trim();
-  const tutorialSteps = await loadTutorialSteps();
-  console.log(tutorialSteps)
+  const tutorialSteps = loadTutorialSteps();
+  console.log("Tutorial Steps: "+tutorialSteps)
   console.log("User input: "+userInput)
   const currentStep = tutorialSteps.find(
     step => step.expectedCode === document.getElementById("example").innerText);
