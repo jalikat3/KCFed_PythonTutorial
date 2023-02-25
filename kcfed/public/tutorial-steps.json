@@ -19,6 +19,13 @@
       "instruction": "Create your first function",
       "expectedCode": "def add(a,b):\n\ta=a",
       "success_message": "Well done! You created a variable."
+    },
+    {
+      "step":4,
+      "title": "Step 4",
+      "instruction": "Thanks for completing our tutorial!",
+      "expectedCode": "",
+      "success_message": "Well done! You created a variable."
     }
   
   ]
