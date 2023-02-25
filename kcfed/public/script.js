@@ -131,7 +131,7 @@ async function checkUserInput() {
   if (currentStep) {
     let currentStepNumber = 1;
     document.getElementById("instruction").textContent = currentStep.instruction;
-    document.getElementById("example_code").textContent = currentStep.expectedCode;
+    document.getElementById("example").textContent = currentStep.expectedCode;
     return true;
   } else {
     let currentStepNumber=1;
@@ -140,14 +140,15 @@ async function checkUserInput() {
       currentStepNumber++;
       const nextStep = tutorialSteps.find(step => step.step === currentStepNumber);
       if (nextStep) {
-        document.getElementById("instruction").textContent = nextStep.instruction;
-        document.getElementById("example_code").textContent = nextStep.expectedCode;
-        document.getElementById("change").innerHTML = "Great job! Now try the next step.";
+        document.getElementById("change").innerHTML = nextStep.instruction;
+        document.getElementById("example").innerHTML = nextStep.expectedCode;
+        //document.getElementById("change").innerHTML = "Great job! Now try the next step.";
         document.getElementById("change").classList.add("animate");
+        document.getElementById("example").classList.add("animate");
         return true;
       } else {
         document.getElementById("instruction").textContent = "Congratulations, you have completed the tutorial!";
-        document.getElementById("example_code").textContent = "";
+        document.getElementById("example").textContent = "";
         document.getElementById("change").innerHTML = "Reset";
         document.getElementById("change").classList.remove("animate");
         return true;
