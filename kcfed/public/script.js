@@ -85,7 +85,8 @@ window.languagePluginUrl ('https://cdn.jsdelivr.net/pyodide/v0.18.1/full/pyodide
 async function loadTutorialSteps() {
   const response = await fetch('tutorial-steps.json');
   const data = await response.json();
-  return data.tutorialSteps;
+  console.log(data)
+  return data;
 }
 
 async function init() {
@@ -125,6 +126,7 @@ async function loadPyodideIfNeeded() {
 async function checkUserInput() {
   const userInput = document.getElementById("input").value.trim();
   const tutorialSteps = await loadTutorialSteps();
+  console.log(tutorialSteps)
   const currentStep = tutorialSteps.find(step => step.expectedCode === userInput);
   if (currentStep) {
     currentStepNumber = 1;
