@@ -124,13 +124,16 @@ async function loadPyodideIfNeeded() {
 }
 
 async function checkUserInput() {
+  console.log(document.getElementById("example").innerText.value);
   const userInput = document.getElementById("input").value.trim();
   const tutorialSteps = await loadTutorialSteps();
   console.log(tutorialSteps)
-  console.log(userInput)
-  const currentStep = tutorialSteps.find(step => step.expectedCode === userInput);
+  console.log("User input: "+userInput)
+  const currentStep = tutorialSteps.find(
+    step => step.expectedCode === document.getElementById("example").innerText);
+  console.log("current step: "+ currentStep)
+  console.log("checking for: "+currentStep.expectedCode)
   if (currentStep) {
-    let currentStepNumber = 1;
     document.getElementById("instruction").textContent = currentStep.instruction;
     document.getElementById("example").textContent = currentStep.expectedCode;
     return true;
@@ -143,8 +146,8 @@ async function checkUserInput() {
       const nextStep = tutorialSteps.find(step => step.step === currentStepNumber);
       console.log("next step expected code : "+ nextStep.step);
       if (nextStep) {
-        document.getElementById("change").innerHTML = nextStep.instruction;
-        document.getElementById("example").innerText = nextStep.expectedCode;
+        document.getElementById("change").value = nextStep.instruction;
+        document.getElementById("example").value = nextStep.expectedCode;
         console.log(nextStep.expectedCode);
         //document.getElementById("change").innerHTML = "Great job! Now try the next step.";
         document.getElementById("change").classList.add("animate");
