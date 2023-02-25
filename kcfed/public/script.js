@@ -139,8 +139,9 @@ async function checkUserInput() {
   console.log("current step: "+ step)
   console.log("this is the user's input"+userInput)
   for (let i=0; i<=tutorialSteps.length; i++){
-    console.log(i)
-    if (tutorialSteps[i].exampleCode==example){
+    console.log(i);
+    console.log(tutorialSteps[i].expectedCode);
+    if (tutorialSteps[i].expectedCode===example){
         console.log("Found: "+example);
         return true;
         
