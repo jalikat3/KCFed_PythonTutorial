@@ -17,5 +17,5 @@
       "example_code": "name = 'John'\nprint(name)",
       "success_message": "Well done! You created a variable and printed its value."
     }
-  ]
   
+  ]

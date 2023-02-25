@@ -127,11 +127,12 @@ async function checkUserInput() {
   const tutorialSteps = await loadTutorialSteps();
   const currentStep = tutorialSteps.find(step => step.expectedCode === userInput);
   if (currentStep) {
+    currentStepNumber = 1;
     document.getElementById("instruction").textContent = currentStep.instruction;
     document.getElementById("example_code").textContent = currentStep.expectedCode;
     return true;
   } else {
-    const currentExpectedCode = tutorialSteps.find(step => step.step === currentStepNumber).expectedCode;
+    const currentExpectedCode = tutorialSteps.find(step => step.step === currentStepNumber)?.expectedCode;
     if (userInput === currentExpectedCode) {
       currentStepNumber++;
       const nextStep = tutorialSteps.find(step => step.step === currentStepNumber);
@@ -162,15 +163,25 @@ async function runCode() {
   await loadPyodideIfNeeded();
   await eraseConsole();
   var code = document.getElementById("input").value.trim();
-  let consoleElement=document.getElementById("console");
+  var consoleElement=document.getElementById("console");
+  
   console.log(code);
+  try {
+    pyodide.runPython(code).then(output => {
+      consoleElement.innerHTML += output + "\n";
+    });
+  } catch (err) {
+    consoleElement.innerHTML += err.toString() + "\n";
+  }
   var changing = document.getElementById("instruction");
   if (checkUserInput()) {
     changing.innerHTML = "Great job! Now try the next step.";
     changing.classList.add("animate");
   } else {
     try {
-      pyodide.runPython(code);
+      pyodide.runPython(code).then(output => {
+        consoleElement.innerHTML += output + "\n";
+      });
     } catch (err) {
       consoleElement.innerHTML += err.toString() + "\n";
     }
