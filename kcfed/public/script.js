@@ -80,6 +80,7 @@ document.getElementById("example_code").textContent = tutorialSteps[0].expectedC
  */
 
 let pyodide = null;
+const tutorialSteps = require('./tutorial-steps.json');
 window.languagePluginUrl ('https://cdn.jsdelivr.net/pyodide/v0.18.1/full/pyodide.js');
 
 async function loadTutorialSteps() {
