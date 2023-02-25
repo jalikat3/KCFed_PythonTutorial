@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <title>Pyodide Console</title>
     <script src="https://cdn.jsdelivr.net/pyodide/v0.18.1/full/pyodide.js"></script>
-    <style>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <!-- <style>
         /* Create a container to align the elements */
         .container {
             margin: 0 auto;
@@ -48,15 +50,21 @@
             font-family: monospace;
             white-space: pre;
         }
-    </style>
+    </style> -->
 </head>
 <body>
     <div class="container">
         <div class="text">
             <h1>Pyodide Console</h1>
-            <p>Enter your Python code below and click the "Run Code" button to execute it.</p>
+            <h2 id="step-title">Step 1</h2>
+            <p id="instruction">Enter your Python code below and click the "Run Code" button to execute it.</p>
             <p>Example code:</p>
+<<<<<<< Updated upstream
             <pre>print("Hello, world!")</pre>
+=======
+            <h2 id="success_message"></h2>
+            <pre id="example_code">print("Hello, world!")</h4>
+>>>>>>> Stashed changes
         </div>
         <div class="textarea">
             <label for="input">Python Code:</label><br>
@@ -70,7 +78,7 @@
             <div id="console"></div>
         </div>
     </div>
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         const consoleElement = document.getElementById("console");
         let pyodide = null;
         
@@ -84,6 +92,7 @@
         }
 
         async function runCode() {
+<<<<<<< Updated upstream
             await loadPyodideIfNeeded();
             const code = document.getElementById("input").value;
             consoleElement.innerHTML = ""; // clear previous output
@@ -91,13 +100,43 @@
                 pyodide.runPython(code);
             } catch (err) {
                 consoleElement.innerHTML += err.toString() + "\n";
+=======
+        await loadPyodideIfNeeded();
+        await eraseConsole();
+        var code = document.getElementById("input").value.trim();
+        console.log(code)
+        var example_code=document.getElementById("example_code");
+        var changing=document.getElementById("change");
+        try {
+            pyodide.runPython(code);
+            console.log(code)
+            console.log(example_code.innerText)
+            if(checkUserInput()){
+                changing.innerHTML = "Great job! Now try adding another line of code.";
+                example_code.innerHTML="a=1"
+                changing.classList.add("animate");
+                example_code.classList.add("animate");
+>>>>>>> Stashed changes
             }
         }
+<<<<<<< Updated upstream
         
+=======
+    }
+   
+>>>>>>> Stashed changes
         function eraseConsole() {
             consoleElement.innerHTML = "";
             pyodide.runPython("");
         }
-    </script>
+
+        /* function checkUserInput(){
+            const userInput = document.getElementById("input").value.trim();
+            const exampleCode = document.getElementById("example_code").innerText.trim();
+            return userInput === exampleCode;
+} */
+
+        
+    </script> -->
 </body>
 </html>
