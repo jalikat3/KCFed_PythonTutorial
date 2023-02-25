@@ -3,21 +3,21 @@
       "step": 1,
       "title": "Step 1",
       "instruction": "Enter the following code and click 'Run Code'",
-      "example_code": "print('Hello, world!')",
+      "expectedCode": "print('Hello, world!')",
       "success_message": "Great job! You printed your first message."
     },
     {
       "step": 2,
       "title": "Step 2",
       "instruction": "Add a new line of code that prints the result of adding 2 and 2",
-      "example_code": "print('Hello, world!')\nprint(2+2)",
+      "expectedCode": "print(2+2)",
       "success_message": "Awesome! You just printed the result of adding 2 and 2."
     },
     {
       "step":3,
       "title": "Step 3",
       "instruction": "Create a variable 'name' that stores your name as a string and then print it",
-      "example_code": "name = 'John'\nprint(name)",
+      "expectedCode": "print('Hello, world!')",
       "success_message": "Well done! You created a variable and printed its value."
     }
   

@@ -127,6 +127,7 @@ async function checkUserInput() {
   const userInput = document.getElementById("input").value.trim();
   const tutorialSteps = await loadTutorialSteps();
   console.log(tutorialSteps)
+  console.log(userInput)
   const currentStep = tutorialSteps.find(step => step.expectedCode === userInput);
   if (currentStep) {
     let currentStepNumber = 1;
