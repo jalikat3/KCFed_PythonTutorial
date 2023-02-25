@@ -129,12 +129,13 @@ async function checkUserInput() {
   console.log(tutorialSteps)
   const currentStep = tutorialSteps.find(step => step.expectedCode === userInput);
   if (currentStep) {
-    currentStepNumber = 1;
+    let currentStepNumber = 1;
     document.getElementById("instruction").textContent = currentStep.instruction;
     document.getElementById("example_code").textContent = currentStep.expectedCode;
     return true;
   } else {
-    const currentExpectedCode = tutorialSteps.find(step => step.step === currentStepNumber)?.expectedCode;
+    let currentStepNumber=1;
+    const currentExpectedCode = tutorialSteps.find(step => step.step === currentStepNumber.expectedCode);
     if (userInput === currentExpectedCode) {
       currentStepNumber++;
       const nextStep = tutorialSteps.find(step => step.step === currentStepNumber);
