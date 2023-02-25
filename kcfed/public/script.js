@@ -81,7 +81,7 @@ document.getElementById("example_code").textContent = tutorialSteps[0].expectedC
 
 let pyodide = null;
 const tutorialSteps = require('./tutorial-steps.json');
-window.languagePluginUrl ('https://cdn.jsdelivr.net/pyodide/v0.18.1/full/pyodide.js');
+window.languagePluginUrl('https://cdn.jsdelivr.net/pyodide/v0.18.1/full/pyodide.js');
 
 async function loadTutorialSteps() {
   const response = await fetch('./tutorial-steps.json',{
@@ -128,7 +128,6 @@ async function loadPyodideIfNeeded() {
       };
   }
 }
-
 async function checkUserInput() {
   console.log(document.getElementById("example").innerText.value);
   let example=document.getElementById("example").innerHTML;
@@ -145,7 +144,13 @@ async function checkUserInput() {
     if (tutorialSteps[i].expectedCode==example){
         console.log("Found: "+example);
         if (userInput==example){
+          console.log("YOU WERE RIGHT")
+          document.getElementById("example").innerHTML=tutorialSteps[i+1].expectedCode;
+          document.getElementById("instruction").innerHTML=tutorialSteps[i+1].instruction;
+          document.getElementById("title").innerHTML=tutorialSteps[i+1].title;
+
           return true;
+          
         }
         else{
           return false;
@@ -203,10 +208,12 @@ async function runCode() {
   }
   var changing = document.getElementById("instruction");
   var example=document.getElementById("example")
+  var title=document.getElementById("title")
   if (checkUserInput()) {
     
     changing.classList.add("animate");
     example.classList.add("animate");
+    title.classList.add("animate");
   } else {
     try {
       pyodide.runPython(code).then(output => {
@@ -214,6 +221,7 @@ async function runCode() {
       });
     } catch (err) {
       consoleElement.innerHTML += err.toString() + "\n";
+      console.log(err);
     }
   }
 }
