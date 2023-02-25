@@ -136,12 +136,15 @@ async function checkUserInput() {
   } else {
     let currentStepNumber=1;
     const currentExpectedCode = tutorialSteps.find(step => step.step === currentStepNumber.expectedCode);
+    console.log("expected code: "+currentExpectedCode);
     if (userInput === currentExpectedCode) {
       currentStepNumber++;
       const nextStep = tutorialSteps.find(step => step.step === currentStepNumber);
+      console.log("next step expected code : "+ nextStep);
       if (nextStep) {
         document.getElementById("change").innerHTML = nextStep.instruction;
-        document.getElementById("example").innerHTML = nextStep.expectedCode;
+        document.getElementById("example").innerText = nextStep.expectedCode;
+        console.log(nextStep.expectedCode);
         //document.getElementById("change").innerHTML = "Great job! Now try the next step.";
         document.getElementById("change").classList.add("animate");
         document.getElementById("example").classList.add("animate");
