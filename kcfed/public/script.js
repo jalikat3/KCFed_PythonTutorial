@@ -200,12 +200,10 @@ async function runCode() {
   
   console.log("Code"+code);
   try {
-    pyodide.runPython(code).then(output => {
-      consoleElement.innerHTML += output + "\n";
-    });
-  } catch (err) {
+    pyodide.runPython(code);
+} catch (err) {
     consoleElement.innerHTML += err.toString() + "\n";
-  }
+}
   var changing = document.getElementById("instruction");
   var example=document.getElementById("example")
   var title=document.getElementById("title")
@@ -215,14 +213,7 @@ async function runCode() {
     example.classList.add("animate");
     title.classList.add("animate");
   } else {
-    try {
-      pyodide.runPython(code).then(output => {
-        consoleElement.innerHTML += output + "\n";
-      });
-    } catch (err) {
-      consoleElement.innerHTML += err.toString() + "\n";
-      console.log(err);
-    }
+    return err;
   }
 }
 
