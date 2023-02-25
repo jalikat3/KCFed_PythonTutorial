@@ -75,6 +75,10 @@
     .textarea {
       padding: 10px;
       font-size: 1.5rem;
+        margin-bottom: 10px;
+        tab-size: 4; /* set tab size to 4 spaces */
+        white-space: pre-wrap; /* preserve whitespace formatting */
+
     }
     
     #console {

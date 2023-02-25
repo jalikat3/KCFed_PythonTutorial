@@ -16,9 +16,9 @@
     {
       "step":3,
       "title": "Step 3",
-      "instruction": "Create a variable 'name' that stores your name as a string and then print it",
-      "expectedCode": "print('Hello, world!')",
-      "success_message": "Well done! You created a variable and printed its value."
+      "instruction": "Create your first function",
+      "expectedCode": "def add(a,b):\n\ta=a",
+      "success_message": "Well done! You created a variable."
     }
   
   ]

@@ -133,6 +133,7 @@ async function checkUserInput() {
   let example=document.getElementById("example").innerHTML;
   console.log("Checking for "+example);
   const userInput = document.getElementById("input").value.trim();
+  const userInputNoSpace=document.getElementById("input").value.trim().replace(/\s/g, "")
   const tutorialSteps = await loadTutorialSteps();
   console.log(tutorialSteps);
   let step=0
@@ -148,7 +149,6 @@ async function checkUserInput() {
           document.getElementById("example").innerHTML=tutorialSteps[i+1].expectedCode;
           document.getElementById("instruction").innerHTML=tutorialSteps[i+1].instruction;
           document.getElementById("title").innerHTML=tutorialSteps[i+1].title;
-
           return true;
           
         }
