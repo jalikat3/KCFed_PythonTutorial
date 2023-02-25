@@ -91,6 +91,7 @@ async function loadTutorialSteps() {
   const data = await response.json();
   console.log('This is data:');
   data.forEach(obj => console.log(JSON.stringify(obj)));
+  console.log(data)
   return data;
 }
 
@@ -130,26 +131,31 @@ async function loadPyodideIfNeeded() {
 
 async function checkUserInput() {
   console.log(document.getElementById("example").innerText.value);
+  let example=document.getElementById("example").innerHTML;
   const userInput = document.getElementById("input").value.trim();
-  const tutorialSteps = loadTutorialSteps();
-  console.log("Tutorial Steps: "+tutorialSteps)
-  console.log("User input: "+userInput)
-  const currentStep = tutorialSteps.find(
-    step => step.expectedCode === document.getElementById("example").innerText);
-  console.log("current step: "+ currentStep)
-  console.log("checking for: "+currentStep.expectedCode)
-  if (currentStep) {
-    document.getElementById("instruction").textContent = currentStep.instruction;
-    document.getElementById("example").textContent = currentStep.expectedCode;
-    return true;
-  } else {
-    let currentStepNumber=1;
-    const currentExpectedCode = tutorialSteps.find(step => step.step === currentStepNumber)?.expectedCode;
-    console.log("expected code: "+currentExpectedCode);
-    if (userInput === currentExpectedCode) {
-      currentStepNumber++;
+  const tutorialSteps = await loadTutorialSteps();
+  console.log(tutorialSteps);
+  let step=0
+  console.log("current step: "+ step)
+  console.log("this is the user's input"+userInput)
+  for (let i=0; i<=tutorialSteps.length; i++){
+    console.log(i)
+    if (tutorialSteps[i].exampleCode==example){
+        console.log("Found: "+example);
+        return true;
+        
+    }
+  }
+  return false;
+}
+ 
+  
+
+
+      /*currentStepNumber++;
       const nextStep = tutorialSteps.find(step => step.step === currentStepNumber);
       console.log("next step expected code : "+ nextStep.step);
+    
       if (nextStep) {
         document.getElementById("change").value = nextStep.instruction;
         document.getElementById("example").value = nextStep.expectedCode;
@@ -167,9 +173,8 @@ async function checkUserInput() {
       }
     } else {
       return false;
-    }
-  }
-}
+    }*/
+  
 
 
 
@@ -181,7 +186,7 @@ async function runCode() {
   var code = document.getElementById("input").value.trim();
   var consoleElement=document.getElementById("console");
   
-  console.log(code);
+  console.log("Code"+code);
   try {
     pyodide.runPython(code).then(output => {
       consoleElement.innerHTML += output + "\n";
@@ -190,9 +195,11 @@ async function runCode() {
     consoleElement.innerHTML += err.toString() + "\n";
   }
   var changing = document.getElementById("instruction");
-  if (checkUserInput()) {
-    changing.innerHTML = "Great job! Now try the next step.";
+  var example=document.getElementById("example")
+  if (checkUserInput(example)==True) {
+    
     changing.classList.add("animate");
+    example.classList.add("animate");
   } else {
     try {
       pyodide.runPython(code).then(output => {
