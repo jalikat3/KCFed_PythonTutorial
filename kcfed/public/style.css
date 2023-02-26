@@ -1,0 +1,171 @@
+
+/* Create a container to align the elements */
+body{
+    background-color: #7BAFDC;
+}
+.container {
+    margin: 0 auto;
+    max-width: 960px;
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.animate {
+    animation-name: example;
+
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+
+}
+
+@keyframes example {
+    from { opacity: 0;
+    }
+    to { opacity: 1;
+    }
+}
+
+/* Set styles for the header and the text */
+.header {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.text {
+    flex: 1;
+    padding: 20px;
+
+    background-color: #f7f8f9;
+}
+
+.text h1 {
+    font-size: 40px;
+
+    font-weight: bold;
+    margin-bottom: 5px;
+    color:#245076;
+}
+
+.text h2 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 40px;
+    margin-bottom: 20px;
+
+}
+.text h4 {
+    font-size: 15px;
+    color:#245076;
+    font-weight: bold;
+
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.text h3{
+    font-weight: normal;
+}
+.text p {
+    font-size: 24px;
+    font-weight: bold;
+
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.text pre {
+    font-size: 20px;
+    line-height: 1.5;
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-radius: 5px;
+
+    margin-bottom: 20px;
+}
+
+/* Style the textarea and button */
+.textarea {
+    flex: 1;
+    padding: 50px;
+    
+    padding-top: 10px;
+    background-color: #f7f8f9;
+}
+
+.textarea label {
+    font-size: 18px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.textarea textarea {
+    padding: 10px;
+    padding-top: 10px;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    tab-size: 4; 
+    white-space: pre-wrap; /* preserve whitespace formatting */
+}
+
+.textarea button {
+    font-size: 20px;
+    background-color: #EFCA33;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.textarea button:hover {
+    background-color: #245076;
+}
+
+/* Style the console output */
+#console-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f7f8f9;
+    overflow-wrap:break-word;
+    word-wrap: break-word; 
+}
+
+#console {
+    font-family: monospace;
+    white-space: pre;
+    font-size: 18px;
+    padding: 24px;
+    border: 5px;
+    line-height: 2.5;
+    background-color: white;
+    overflow-wrap:break-word;
+    word-wrap: break-word;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    .container {
+        max-width: 100%;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .text,
+    .textarea {
+        padding: 10px;
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        tab-size: 4; 
+        white-space: pre-wrap; /* preserve whitespace formatting */
+    }
+
+    #console {font-size: 1.2rem;}
+}
+
