@@ -1,6 +1,7 @@
 # KCFed_Python Tutorial
+## Created by Ode to Code (Chris Warren and Jali Purcell)
 
-### Created with very beginner, possibly children in mind
+### Created with very beginner programmers, and children in mind
 ### Teachers can use this application to reinforce math concepts
 
 - As a child user, I want to learn how to code so that I can do my math problems quickly.
