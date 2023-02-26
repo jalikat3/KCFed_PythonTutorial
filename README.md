@@ -8,3 +8,4 @@
 - As a teacher user, I want to present this web app to my students so that they can experience math in a new way.
 - As a beginner programmer, I want to use this web app so that I learn Python for the first time.
 
+Instructions for starting a npm app are given in the readme in the kcfed folder
