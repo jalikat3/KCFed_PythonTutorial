@@ -1,83 +1,3 @@
-/* let pyodide = null;
-
-window.languagePluginUrl ('https://cdn.jsdelivr.net/pyodide/v0.18.1/full/pyodide.js');
-
-const tutorialSteps = [
-  {
-    "step": 2,
-    "instruction": "Now, modify the code above to print your name instead.",
-    "expectedCode": "print('Your Name')"
-  },
-  {
-    "step": 3,
-    "instruction": "Great job! Now try adding another line of code that sets a variable equal to your age and prints it out.",
-    "expectedCode": "age = 25\nprint(age)"
-  }
-];
-
-window.onload = async function() {
-  pyodide = await loadPyodide({ indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.18.1/full/' });
-  // Pyodide is now ready to use...
-  console.log(pyodide.runPython(`
-    import sys
-    sys.version
-  `));
-  let consoleElement=document.getElementById("console");
-  pyodide.globals.print = function(output) {
-    consoleElement.innerHTML += output + "\n";
-  };
-};
-
-async function loadPyodideIfNeeded() {
-  if (pyodide === null) {
-      pyodide = await loadPyodide({ indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.18.1/full/' });
-      let consoleElement=document.getElementById("console");
-
-      pyodide.globals.print = function(output) {
-          consoleElement.innerHTML += output + "\n";
-      };
-  }
-}
-
-function checkUserInput() {
-  const currentStep = tutorialSteps.find(step => step.expectedCode === userInput);
-  if (currentStep) {
-    document.getElementById("instruction").textContent = currentStep.instruction;
-    document.getElementById("example_code").textContent = currentStep.expectedCode;
-    return true;
-  }
-  return false;
-}
-
-async function runCode() {
-  await loadPyodideIfNeeded();
-  await eraseConsole();
-  var code = document.getElementById("input").value.trim();
-  let consoleElement=document.getElementById("console");
-  console.log(code);
-  var changing = document.getElementById("change");
-  if (checkUserInput()) {
-    changing.innerHTML = "Great job! Now try the next step.";
-    changing.classList.add("animate");
-  } else {
-    try {
-      pyodide.runPython(code);
-    } catch (err) {
-      consoleElement.innerHTML += err.toString() + "\n";
-    }
-  }
-}
-
-function eraseConsole() {
-  let consoleElement=document.getElementById("console");
-  consoleElement.innerHTML = "";
-  pyodide.runPython("");
-  console.log("it worked");
-}
-
-document.getElementById("instruction").textContent = tutorialSteps[0].instruction;
-document.getElementById("example_code").textContent = tutorialSteps[0].expectedCode;
- */
 
 let pyodide = null;
 const tutorialSteps = require('./tutorial-steps.json');
@@ -119,7 +39,7 @@ async function init() {
 
 window.onload = async function() {
   pyodide = await loadPyodide({ indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.18.1/full/' });
-  // Pyodide is now ready to use...
+  // run pyodide for the python code
   console.log(pyodide.runPython(`
     import sys
     sys.version
@@ -145,6 +65,8 @@ async function loadPyodideIfNeeded() {
 async function checkUserInput() {
   console.log(document.getElementById("example").innerText.value);
   let example=document.getElementById("example").innerHTML;
+  let instruction=document.getElementById("instruction");
+  let title=document.getElementById("title")
   console.log("Checking for "+example);
   const userInput = document.getElementById("input").value.trim();
   const userInputNoSpace = userInput.replace(/\r?\n/g, "\n").replace(/\r?\t/g, "\t");
@@ -160,18 +82,18 @@ async function checkUserInput() {
         console.log("Found: "+example);
         console.log(userInputNoSpace);
         if (userInputNoSpace == example) {
-          document.getElementById("instruction").classList.add("animate");
+          instruction.classList.add("animate");
           document.getElementById("example").classList.add("animate");
-          document.getElementById("title").classList.add("animate");
+          title.classList.add("animate");
           console.log("YOU WERE RIGHT")
           document.getElementById("example").innerHTML=tutorialSteps[i+1].expectedCode; 
-          document.getElementById("instruction").innerHTML=tutorialSteps[i+1].instruction; 
-          document.getElementById("title").innerHTML=tutorialSteps[i+1].title; 
+          instruction.innerHTML=tutorialSteps[i+1].instruction; 
+          title.innerHTML=tutorialSteps[i+1].title; 
           document.getElementById("success_message").innerHTML=tutorialSteps[i].success_message; 
           setTimeout(() => { document.getElementById("success_message").innerHTML="";
-          document.getElementById("instruction").classList.remove("animate");
+          instruction.classList.remove("animate");
           document.getElementById("example").classList.remove("animate");
-          document.getElementById("title").classList.remove("animate");}, 5000) 
+          title.classList.remove("animate");}, 5000) 
           return true;
           
         }
