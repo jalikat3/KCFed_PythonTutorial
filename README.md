@@ -1,4 +1,4 @@
-# KCFed_Python Tutorial
+# Learn to Code for Quick Math
 - By Ode to Code (Chris Warren and Jali Purcell)
 
 ### Created with very beginner programmers, and children in mind
