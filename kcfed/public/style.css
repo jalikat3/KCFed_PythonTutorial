@@ -9,16 +9,16 @@
 
 .animate {
     animation-name: example;
+
     animation-duration: 3s;
     animation-fill-mode: forwards;
+
 }
 
 @keyframes example {
-    from {
-        opacity: 0;
+    from { opacity: 0;
     }
-    to {
-        opacity: 1;
+    to { opacity: 1;
     }
 }
 
@@ -26,16 +26,19 @@
 .header {
     display: flex;
     flex-direction: row;
+
 }
 
 .text {
     flex: 1;
     padding: 20px;
+
     background-color: #f7f8f9;
 }
 
 .text h1 {
     font-size: 40px;
+
     font-weight: bold;
     margin-bottom: 10px;
 }
@@ -45,11 +48,13 @@
     font-weight: bold;
     margin-top: 40px;
     margin-bottom: 20px;
+
 }
 .text h4 {
     font-size: 15px;
     color:#4CAF50;
     font-weight: bold;
+
     margin-top: 5px;
     margin-bottom: 5px;
 }
@@ -60,6 +65,7 @@
 .text p {
     font-size: 24px;
     font-weight: bold;
+
     line-height: 1.5;
     margin-bottom: 20px;
 }
@@ -70,6 +76,7 @@
     background-color: #f2f2f2;
     padding: 10px;
     border-radius: 5px;
+
     margin-bottom: 20px;
 }
 
@@ -77,6 +84,7 @@
 .textarea {
     flex: 1;
     padding: 50px;
+    
     padding-top: 25px;
     background-color: #f7f8f9;
 }
@@ -92,7 +100,7 @@
     padding-top: 10px;
     font-size: 1.5rem;
     margin-bottom: 10px;
-    tab-size: 4; /* set tab size to 4 spaces */
+    tab-size: 4; 
     white-space: pre-wrap; /* preserve whitespace formatting */
 }
 
@@ -145,12 +153,10 @@
         padding: 10px;
         font-size: 1.5rem;
         margin-bottom: 10px;
-        tab-size: 4; /* set tab size to 4 spaces */
+        tab-size: 4; 
         white-space: pre-wrap; /* preserve whitespace formatting */
     }
 
-    #console {
-        font-size: 1.2rem;
-    }
+    #console {font-size: 1.2rem;}
 }
 

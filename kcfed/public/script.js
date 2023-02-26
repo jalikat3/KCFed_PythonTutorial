@@ -1,22 +1,24 @@
 
 let pyodide = null;
 const tutorialSteps = require('./tutorial-steps.json');
+
 window.languagePluginUrl('https://cdn.jsdelivr.net/pyodide/v0.18.1/full/pyodide.js');
+
 document.getElementById('input').addEventListener('keydown', function(e) {
   if (e.key == 'Tab') {
     e.preventDefault();
     var start = this.selectionStart;
     var end = this.selectionEnd;
 
-    // set textarea value to: text before caret + tab + text after caret
-    this.value = this.value.substring(0, start) +
-      "\t" + this.value.substring(end);
+    // set textarea value to: text before tab + tab + after tab
+    this.value = this.value.substring(0, start)+"\t"+this.value.substring(end);
 
     // put caret at right position again
     this.selectionStart =
       this.selectionEnd = start + 1;
   }
 });
+
 async function loadTutorialSteps() {
   const response = await fetch('./tutorial-steps.json',{
     method: "get",
@@ -104,34 +106,6 @@ async function checkUserInput() {
         return false; } } } 
         return false; }
 
-
-      /*currentStepNumber++;
-      const nextStep = tutorialSteps.find(step => step.step === currentStepNumber);
-      console.log("next step expected code : "+ nextStep.step);
-    
-      if (nextStep) {
-        document.getElementById("change").value = nextStep.instruction;
-        document.getElementById("example").value = nextStep.expectedCode;
-        console.log(nextStep.expectedCode);
-        //document.getElementById("change").innerHTML = "Great job! Now try the next step.";
-        document.getElementById("change").classList.add("animate");
-        document.getElementById("example").classList.add("animate");
-        return true;
-      } else {
-        document.getElementById("instruction").textContent = "Congratulations, you have completed the tutorial!";
-        document.getElementById("example").textContent = "";
-        document.getElementById("change").innerHTML = "Reset";
-        document.getElementById("change").classList.remove("animate");
-        return true;
-      }
-    } else {
-      return false;
-    }*/
-  
-
-
-
-
 async function runCode() {
   const tutorialSteps = await loadTutorialSteps();
   await loadPyodideIfNeeded();
@@ -158,8 +132,8 @@ async function runCode() {
 
 function eraseConsole() {
   let consoleElement=document.getElementById("console");
-  consoleElement.innerHTML = "";
-  pyodide.runPython("");
+  consoleElement.innerHTML="";
+  document.getElementById('input').value = "";
   console.log("it worked");
 }
 
