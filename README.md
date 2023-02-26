@@ -10,6 +10,6 @@
 
 Detailed instructions for starting a npm app are given in the readme in the kcfed folder
 Key points: 
-- open a terminal and type install npm
+- open a terminal and type npm install
 - the type cd kcfed
 - then type npm start
