@@ -1,88 +1,156 @@
+
 /* Create a container to align the elements */
 .container {
     margin: 0 auto;
     max-width: 960px;
     display: flex;
     flex-direction: column;
-  }
-  
-  .animate {
+}
+
+.animate {
     animation-name: example;
     animation-duration: 3s;
     animation-fill-mode: forwards;
-  }
-  
-  @keyframes example {
+}
+
+@keyframes example {
     from {
-      opacity: 0;
+        opacity: 0;
     }
     to {
-      opacity: 1;
+        opacity: 1;
     }
-  }
-  
-  /* Set styles for the header and the text */
-  .header {
+}
+
+/* Set styles for the header and the text */
+.header {
     display: flex;
     flex-direction: row;
-  }
-  
-  .text {
+}
+
+.text {
     flex: 1;
     padding: 20px;
-  }
-  
-  /* Style the textarea and button */
-  .textarea {
+    background-color: #f7f8f9;
+}
+
+.text h1 {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.text h2 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+.text h4 {
+    font-size: 15px;
+    color:#4CAF50;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.text h3{
+    font-weight: normal;
+}
+.text p {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.text pre {
+    font-size: 24px;
+    line-height: 1.5;
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* Style the textarea and button */
+.textarea {
     flex: 1;
     padding: 50px;
-    background-color: #f2f2f2;
-  }
-  
-  textarea {
+    padding-top: 25px;
+    background-color: #f7f8f9;
+}
+
+.textarea label {
+    font-size: 24px;
     margin-bottom: 10px;
-  }
-  
-  button {
+    display: block;
+}
+
+.textarea textarea {
+    padding: 10px;
+    padding-top: 10px;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    tab-size: 4; /* set tab size to 4 spaces */
+    white-space: pre-wrap; /* preserve whitespace formatting */
+}
+
+.textarea button {
+    font-size: 24px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
     margin-top: 10px;
-  }
-  
-  /* Style the console output */
-  #console-container {
+    cursor: pointer;
+}
+
+.textarea button:hover {
+    background-color: #3e8e41;
+}
+
+/* Style the console output */
+#console-container {
     margin-top: 20px;
     padding: 20px;
-    background-color: #f2f2f2;
-  }
-  
-  #console {
+    background-color: #f7f8f9;
+}
+
+#console {
     font-family: monospace;
     white-space: pre;
-  }
-  
-  /* Media query for mobile devices */
-  @media (max-width: 768px) {
+    font-size: 24px;
+    padding: 24px;
+    line-height: 2.5;
+    background-color: white;
+    border-color: #4CAF50;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
     .container {
-      max-width: 100%;
+        max-width: 100%;
     }
-    
+
     .header {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
-    
+
     .text,
     .textarea {
-      padding: 10px;
-      font-size: 1.5rem;
+        padding: 10px;
+        font-size: 1.5rem;
         margin-bottom: 10px;
         tab-size: 4; /* set tab size to 4 spaces */
         white-space: pre-wrap; /* preserve whitespace formatting */
+    }
 
-    }
-    
     #console {
-      font-size: 1.2rem;
+        font-size: 1.2rem;
     }
-  }
-  
+}
+

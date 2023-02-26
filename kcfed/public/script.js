@@ -82,7 +82,21 @@ document.getElementById("example_code").textContent = tutorialSteps[0].expectedC
 let pyodide = null;
 const tutorialSteps = require('./tutorial-steps.json');
 window.languagePluginUrl('https://cdn.jsdelivr.net/pyodide/v0.18.1/full/pyodide.js');
+document.getElementById('input').addEventListener('keydown', function(e) {
+  if (e.key == 'Tab') {
+    e.preventDefault();
+    var start = this.selectionStart;
+    var end = this.selectionEnd;
 
+    // set textarea value to: text before caret + tab + text after caret
+    this.value = this.value.substring(0, start) +
+      "\t" + this.value.substring(end);
+
+    // put caret at right position again
+    this.selectionStart =
+      this.selectionEnd = start + 1;
+  }
+});
 async function loadTutorialSteps() {
   const response = await fetch('./tutorial-steps.json',{
     method: "get",
@@ -133,40 +147,40 @@ async function checkUserInput() {
   let example=document.getElementById("example").innerHTML;
   console.log("Checking for "+example);
   const userInput = document.getElementById("input").value.trim();
-  const userInputNoSpace = userInput.replace(/\s/g, "").replace(/\t/g, "");
+  const userInputNoSpace = userInput.replace(/\r?\n/g, "\n").replace(/\r?\t/g, "\t");
   const tutorialSteps = await loadTutorialSteps();
   console.log(tutorialSteps);
   let step=0
   console.log("current step: "+ step)
-  console.log("this is the user's input"+userInput)
+  console.log("this is the user's input: "+userInput)
   for (let i=0; i<=tutorialSteps.length; i++){
     console.log(i);
     console.log(tutorialSteps[i].expectedCode);
     if (tutorialSteps[i].expectedCode==example){
         console.log("Found: "+example);
-        if (userInputNoSpace == example.replace(/\s/g, "")) {
+        console.log(userInputNoSpace);
+        if (userInputNoSpace == example) {
+          document.getElementById("instruction").classList.add("animate");
+          document.getElementById("example").classList.add("animate");
+          document.getElementById("title").classList.add("animate");
           console.log("YOU WERE RIGHT")
-          document.getElementById("example").innerHTML=tutorialSteps[i+1].expectedCode;
-          document.getElementById("instruction").innerHTML=tutorialSteps[i+1].instruction;
-          document.getElementById("title").innerHTML=tutorialSteps[i+1].title;
+          document.getElementById("example").innerHTML=tutorialSteps[i+1].expectedCode; 
+          document.getElementById("instruction").innerHTML=tutorialSteps[i+1].instruction; 
+          document.getElementById("title").innerHTML=tutorialSteps[i+1].title; 
+          document.getElementById("success_message").innerHTML=tutorialSteps[i].success_message; 
+          setTimeout(() => { document.getElementById("success_message").innerHTML="";
+          document.getElementById("instruction").classList.remove("animate");
+          document.getElementById("example").classList.remove("animate");
+          document.getElementById("title").classList.remove("animate");}, 5000) 
           return true;
           
         }
         else{
-          return false;
-        }
-        
-    }
-  }
-  return false;
-}
 
-
-
-
-
- 
-  
+        document.getElementById("error_message").innerHTML=tutorialSteps[i].error_message; 
+        setTimeout(() => { document.getElementById("error_message").innerHTML=""; }, 5000) 
+        return false; } } } 
+        return false; }
 
 
       /*currentStepNumber++;
@@ -214,11 +228,9 @@ async function runCode() {
   var title=document.getElementById("title")
   if (checkUserInput()) {
     
-    changing.classList.add("animate");
-    example.classList.add("animate");
-    title.classList.add("animate");
+    return true;
   } else {
-    return err;
+    return false;;
   }
 }
 

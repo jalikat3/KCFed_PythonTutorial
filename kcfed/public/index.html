@@ -2,24 +2,42 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Pyodide Console</title>
+    <title>Learn to Code</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/pyodide/v0.18.1/full/pyodide.js"></script>
+    
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
 </head>
 <body>
     <div class="container">
         <div class="text">
-            <h1>Pyodide Console</h1>
+            <h1>Learn to Code for Quick Math</h1>
             <h2 id="title">Step 1</h2>
-            <p id="instruction">Enter your python code below and click the "Run Code" button to execute it.</p>
+            <h3 id="instruction">Enter your python code below and click the "Run Code" button to execute it.</h3>
             <p>Example code:</p>
-            <h2 id="success_message"></h2>
+            <h4 id="success_message"></h4>
+            <h4 id="error_message"></h4>
             <pre id="example">print('Hello, world!')</pre>
         </div>
         <div class="textarea">
             <label for="input">Python Code:</label><br>
             <textarea id="input" rows="5" cols="50"></textarea>
+            <script>
+                const textarea=document.querySelector('textarea')
+                textarea.addEventListener('keydown', (e) => {
+                if (e.keyCode === 9) {
+                    e.preventDefault()
+        
+                    textarea.setRangeText(
+                    '  ',
+                    textarea.selectionStart,
+                    textarea.selectionStart,
+                'end'
+                )
+                }
+                })
+            </script>
             <br>
             <button onclick="runCode()">Run Code</button>
             <button onclick="eraseConsole()">Erase Console</button>

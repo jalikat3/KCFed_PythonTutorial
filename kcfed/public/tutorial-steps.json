@@ -1,31 +1,74 @@
 [
-    {
-      "step": 1,
-      "title": "Step 1",
-      "instruction": "Enter the following code and click 'Run Code'",
-      "expectedCode": "print('Hello, world!')",
-      "success_message": "Great job! You printed your first message."
-    },
-    {
-      "step": 2,
-      "title": "Step 2",
-      "instruction": "Add a new line of code that prints the result of adding 2 and 2",
-      "expectedCode": "print(2+2)",
-      "success_message": "Awesome! You just printed the result of adding 2 and 2."
-    },
-    {
-      "step":3,
-      "title": "Step 3",
-      "instruction": "Create your first function",
-      "expectedCode": "def add(a,b):\n\ta=a",
-      "success_message": "Well done! You created a variable."
-    },
-    {
-      "step":4,
-      "title": "Step 4",
-      "instruction": "Thanks for completing our tutorial!",
-      "expectedCode": "",
-      "success_message": "Well done! You created a variable."
-    }
-  
-  ]
+  {
+    "step": 1,
+    "title": "Step 1",
+    "instruction": "Enter the following code and click 'Run Code'",
+    "expectedCode": "print('Hello, world!')",
+    "success_message": "Great job! You printed your first message.",
+    "error_message": "Not quite! Look at the example and try again. (and be sure to check case)"
+  },
+  {
+    "step": 2,
+    "title": "Step 2",
+    "instruction": "Add a new line of code that prints the result of adding 2 and 2",
+    "expectedCode": "print(2+2)",
+    "success_message": "Awesome! You just printed the result of adding 2 and 2.",
+    "error_message": "Not quite! Look at the example and try again. (and be sure to check case)"
+  },
+  {
+    "step":3,
+    "title": "Step 3",
+    "instruction": "Create your first function",
+    "expectedCode": "def add(a,b):\n    c=a+b",
+    "success_message": "Well done! You created your first function.",
+    "error_message": "Not quite! Look at the example and try again. (and be sure to check case)"
+  },
+  {
+    "step":4,
+    "title": "Step 4",
+    "instruction": "Add your variables a and b, then print the results",
+    "expectedCode": "def add(a,b):\n    c=a+b\n    print(c)",
+    "success_message": "Well done! You completed your function.",
+    "error_message": "Not quite! Look at the example and try again. (and be sure to check case)"
+  },
+  {
+    "step":5,
+    "title": "Step 5",
+    "instruction": "Call your add() function",
+    "expectedCode": "def add(a,b):\n    c=a+b\n    print(c)\n\nadd(3,4)",
+    "success_message": "Well done! You called your function.",
+    "error_message": "Not quite! Look at the example and try again. (and be sure to check case)"
+  },
+  {
+    "step":6,
+    "title": "Step 6",
+    "instruction": "Create a subtract function",
+    "expectedCode": "def sub(d,e):\n    c=d-e",
+    "success_message": "Well done!",
+    "error_message": "Not quite! Look at the example and try again. (and be sure to check case)"
+  },
+  {
+    "step":7,
+    "title": "Step 7",
+    "instruction": "Create a subtract function",
+    "expectedCode": "def sub(d,e):\n    c=d-e\n    print(c)",
+    "success_message": "Well done!.",
+    "error_message": "Not quite! Look at the example and try again. (and be sure to check case)"
+  },
+  {
+    "step":8,
+    "title": "Step 8",
+    "instruction": "Call your sub() function",
+    "expectedCode": "def sub(d,e):\n    c=d-e\n    print(c)\n\nsub(5,4)",
+    "success_message": "Well done! You completed our tutorial.",
+    "error_message": "Not quite! Look at the example and try again. (and be sure to check case)"
+  },
+  {
+    "step":9,
+    "title": "Step 9",
+    "instruction": "Here is a function you can use whenever you want. Add as many numbers to 'average([...])' as you need.",
+    "expectedCode": "def average(numList):\n    sum=0\n    for i in numList:\n        sum=sum+i\n    average=sum/len(numList)\n    print(average)\n\naverage([1,2,3,4])",
+    "success_message": "Well done! You completed our tutorial.",
+    "error_message": "Not quite! Look at the example and try again. (and be sure to check case)"
+  }
+]
