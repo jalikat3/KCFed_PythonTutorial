@@ -1,8 +1,12 @@
 
 /* Create a container to align the elements */
+body{
+    background-color: #7BAFDC;
+}
 .container {
     margin: 0 auto;
     max-width: 960px;
+    padding-top: 15px;
     display: flex;
     flex-direction: column;
 }
@@ -41,6 +45,7 @@
 
     font-weight: bold;
     margin-bottom: 5px;
+    color:#245076;
 }
 
 .text h2 {
@@ -52,7 +57,7 @@
 }
 .text h4 {
     font-size: 15px;
-    color:#4CAF50;
+    color:#245076;
     font-weight: bold;
 
     margin-top: 5px;
@@ -106,7 +111,7 @@
 
 .textarea button {
     font-size: 20px;
-    background-color: #4CAF50;
+    background-color: #EFCA33;
     color: white;
     border: none;
     border-radius: 5px;
@@ -116,7 +121,7 @@
 }
 
 .textarea button:hover {
-    background-color: #3e8e41;
+    background-color: #245076;
 }
 
 /* Style the console output */
@@ -124,16 +129,20 @@
     margin-top: 20px;
     padding: 20px;
     background-color: #f7f8f9;
+    overflow-wrap:break-word;
+    word-wrap: break-word; 
 }
 
 #console {
     font-family: monospace;
     white-space: pre;
-    font-size: 20px;
+    font-size: 18px;
     padding: 24px;
+    border: 5px;
     line-height: 2.5;
     background-color: white;
-    border-color: #4CAF50;
+    overflow-wrap:break-word;
+    word-wrap: break-word;
 }
 
 /* Media query for mobile devices */
