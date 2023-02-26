@@ -1,5 +1,5 @@
 # KCFed_Python Tutorial
-## Created by Ode to Code (Chris Warren and Jali Purcell)
+- Created by Ode to Code (Chris Warren and Jali Purcell)
 
 ### Created with very beginner programmers, and children in mind
 ### Teachers can use this application to reinforce math concepts
