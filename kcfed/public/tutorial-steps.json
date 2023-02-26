@@ -18,7 +18,7 @@
   {
     "step":3,
     "title": "Step 3",
-    "instruction": "Create your first function",
+    "instruction": "Create your first function\n\t hint: notice the '+' sign",
     "expectedCode": "def add(a,b):\n    c=a+b",
     "success_message": "Well done! You created your first function.",
     "error_message": "Not quite! Look at the example and try again. (and be sure to check case)"
@@ -36,21 +36,21 @@
     "title": "Step 5",
     "instruction": "Call your add() function",
     "expectedCode": "def add(a,b):\n    c=a+b\n    print(c)\n\nadd(3,4)",
-    "success_message": "Well done! You called your function.",
+    "success_message": "Well done! You called your add() function.",
     "error_message": "Not quite! Look at the example and try again. (and be sure to check case)"
   },
   {
     "step":6,
     "title": "Step 6",
-    "instruction": "Create a subtract function",
+    "instruction": "Create your subtract function\n\t hint: notice the '-' sign",
     "expectedCode": "def sub(d,e):\n    c=d-e",
-    "success_message": "Well done!",
+    "success_message": "Well done! You created your second function.",
     "error_message": "Not quite! Look at the example and try again. (and be sure to check case)"
   },
   {
     "step":7,
     "title": "Step 7",
-    "instruction": "Create a subtract function",
+    "instruction": "Subtract your variables d and e, then print the results",
     "expectedCode": "def sub(d,e):\n    c=d-e\n    print(c)",
     "success_message": "Well done!.",
     "error_message": "Not quite! Look at the example and try again. (and be sure to check case)"
@@ -60,13 +60,69 @@
     "title": "Step 8",
     "instruction": "Call your sub() function",
     "expectedCode": "def sub(d,e):\n    c=d-e\n    print(c)\n\nsub(5,4)",
-    "success_message": "Well done! You completed our tutorial.",
+    "success_message": "Well done! You called your sub() function",
     "error_message": "Not quite! Look at the example and try again. (and be sure to check case)"
   },
   {
     "step":9,
     "title": "Step 9",
-    "instruction": "Here is a function you can use whenever you want. Add as many numbers to 'average([...])' as you need.",
+    "instruction": "Create a divide function, and print the results\n\t (hint: notice the '/' sign)",
+    "expectedCode": "def div(a,b):\n    c=a/b\n    print(c)",
+    "success_message": "Good job! you created a divide function",
+    "error_message": "Not quite! Look at the example and try again. (and be sure to check case)"
+  },
+  {
+    "step":10,
+    "title": "Step 10",
+    "instruction": "Call your div() function",
+    "expectedCode": "def div(a,b):\n    c=a/b\n    print(c)\n\ndiv(12,4)",
+    "success_message": "Well done! You called your div() function",
+    "error_message": "Not quite! Look at the example and try again. (and be sure to check case)"
+  },
+  {
+    "step":11,
+    "title": "Step 11",
+    "instruction": "Create a multiply function, and print the results\n\t (hint: notice the '*' sign)",
+    "expectedCode": "def mult(a,b):\n    c=a*b\n    print(c)",
+    "success_message": "Good job! Your mult() function is complete!",
+    "error_message": "Not quite! Look at the example and try again. (and be sure to check case)"
+  },
+  {
+    "step":12,
+    "title": "Step 12",
+    "instruction": "Call your mult() function",
+    "expectedCode": "def mult(a,b):\n    c=a*b\n    print(c)\n\nmult(3,7)",
+    "success_message": "Well done! You called your mult() function",
+    "error_message": "Not quite! Look at the example and try again. (and be sure to check case)"
+  },
+  {
+    "step":13,
+    "title": "Step 13",
+    "instruction": "Now let's learn about for loops. This loop counts to 9\n\t (hint: range begins at 0)",
+    "expectedCode": "for i in range(10):\n    print(i)",
+    "success_message": "Nice!",
+    "error_message": "Not quite! Look at the example and try again. (and be sure to check case)"
+  },
+  {
+    "step":14,
+    "title": "Step 14",
+    "instruction": "for loops can also go through lists",
+    "expectedCode": "myList = [0,1,2,3,4,5,6,7,8,9]\nfor i in myList:\n    print(i)",
+    "success_message": "Cool!",
+    "error_message": "Not quite! Look at the example and try again. (and be sure to check case)"
+  },
+  {
+    "step":15,
+    "title": "Step 15",
+    "instruction": "While we're on the topic of lists, let's talk about the len() function\n\t (hint: len() counts the number of items in a list)",
+    "expectedCode": "myList = [0,1,2,3,4,5,6,7,8,9]\nx=len(myList)\nprint(x)",
+    "success_message": "Cool!",
+    "error_message": "Not quite! Look at the example and try again. (and be sure to check case)"
+  },
+  {
+    "step":16,
+    "title": "Step 16",
+    "instruction": "Here is a function you can use whenever you want. Add as many numbers to 'average([...])' as you want.",
     "expectedCode": "def average(numList):\n    sum=0\n    for i in numList:\n        sum=sum+i\n    average=sum/len(numList)\n    print(average)\n\naverage([1,2,3,4])",
     "success_message": "Well done! You completed our tutorial.",
     "error_message": "Not quite! Look at the example and try again. (and be sure to check case)"

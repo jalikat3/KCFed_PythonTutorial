@@ -109,7 +109,7 @@ async function checkUserInput() {
 async function runCode() {
   const tutorialSteps = await loadTutorialSteps();
   await loadPyodideIfNeeded();
-  await eraseConsole();
+  await eraseOutput();
   var code = document.getElementById("input").value.trim();
   var consoleElement=document.getElementById("console");
   
@@ -131,9 +131,11 @@ async function runCode() {
 }
 
 function eraseConsole() {
-  let consoleElement=document.getElementById("console");
-  consoleElement.innerHTML="";
   document.getElementById('input').value = "";
   console.log("it worked");
 }
 
+function eraseOutput(){
+  let consoleElement=document.getElementById("console");
+  consoleElement.innerHTML="";
+}
